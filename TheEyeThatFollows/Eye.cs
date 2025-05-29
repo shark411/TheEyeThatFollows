@@ -138,7 +138,11 @@ namespace TheEyeThatFollows
                     _lookingBottomRight = false;
                 }
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.Space)) //Change the colour of the eerie eye!!
+            {
+                _eyeColour = new Color(128 + _rng.Next(0, 129), 128 + _rng.Next(0, 129), 128 + _rng.Next(0, 129));
             }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {

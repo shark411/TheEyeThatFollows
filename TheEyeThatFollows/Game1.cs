@@ -32,8 +32,7 @@ namespace TheEyeThatFollows
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            _Rectangle = Content.Load<Texture2D>("MonogameWindow"); //Will be used for tracking the mouse eventually.
+            _Rectangle = Content.Load<Texture2D>("MonogameWindow"); //No longer needed. Used for tracer code (eye tracking)
             _GameFont = Content.Load<SpriteFont>("GameFont"); //Yay! The font!
 
             //Load up Poobah!
@@ -45,7 +44,6 @@ namespace TheEyeThatFollows
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             _PoohbahTheGrand.Update(); //Update that eye!
             base.Update(gameTime);
         }
@@ -54,12 +52,14 @@ namespace TheEyeThatFollows
         {
             GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
             _spriteBatch.Begin();
             _PoohbahTheGrand.Draw(_spriteBatch); //Draw Poobah!
-            _spriteBatch.Draw(_Rectangle,new Vector2(400, 240), Color.White);
+
+            //Maybe we'll add some intructions
+            _spriteBatch.DrawString(_GameFont, "The eye can only see MOUSE CLICKS...", new Vector2(5, 440), Color.White);
+            _spriteBatch.DrawString(_GameFont, "Press SPACE to change the eye colour.", new Vector2(5, 460), Color.White);
             _spriteBatch.End();
         }
     }
