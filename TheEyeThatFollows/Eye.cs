@@ -10,10 +10,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TheEyeThatFollows
 {
-    internal class Eye
+    internal class Eye //ENCAPSULATED EYE!!! CONTAIN YOURSELF BEAST
     {
         private Random _rng; //To generate random numbers
-        private Texture2D _iris; //Our texture
+        private Texture2D _iris; //Our iris
         private Texture2D _eyelid; //The eyelid
         private Texture2D _eyebase; //The base of the eye
         private Color _eyeColour; //To make the eye change colours
@@ -47,6 +47,7 @@ namespace TheEyeThatFollows
             _lookTimer = 30;
         }
 
+        //Mutators
         public Rectangle TopLeft() //WHERE IS THE EYE LOOKING
         {
             return new Rectangle(-400, -240, 800, 480);
@@ -67,10 +68,6 @@ namespace TheEyeThatFollows
         public Rectangle GetBounds() //Eye Hitbox
         {
             return new Rectangle(350, 180, 100, 100);
-        }
-        public bool IsBlinking() //To check if the eye is blinking
-        {
-            return _isBlinking;
         }
         public void Update()
         {

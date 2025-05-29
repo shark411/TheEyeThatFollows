@@ -5,13 +5,14 @@ using Microsoft.Xna.Framework.Input;
 namespace TheEyeThatFollows
 {
     public class Game1 : Game
-    {
+    {   //Greetings you who reads this. This program is meant to have an eye that follows mouse clicks,
+        //blinks when clicked and changes eye colour when the space is pressed.
+        //No AI was used to make this monstrocity.
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private SpriteFont _GameFont;
-        private Texture2D _Rectangle;
 
-        private Eye _PoohbahTheGrand; //Theres a lot in a name.
+        private Eye _PoohbahTheGrand; //There's a lot in a name.
 
 
         public Game1()
@@ -32,7 +33,6 @@ namespace TheEyeThatFollows
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _Rectangle = Content.Load<Texture2D>("MonogameWindow"); //No longer needed. Used for tracer code (eye tracking)
             _GameFont = Content.Load<SpriteFont>("GameFont"); //Yay! The font!
 
             //Load up Poobah!
