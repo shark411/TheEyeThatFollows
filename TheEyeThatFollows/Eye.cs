@@ -61,7 +61,7 @@ namespace TheEyeThatFollows
         }
         public Rectangle BottomRight() //WHERE IS THE EYE LOOKING
         {
-            return new Rectangle(-400, -240, 800, 480);
+            return new Rectangle(400, 240, 800, 480);
         }
 
         public Rectangle GetBounds() //Eye Hitbox
@@ -122,6 +122,14 @@ namespace TheEyeThatFollows
                     _lookingBottomRight = false;
                     _lookTimer = 30;
                 }
+                else if (BottomRight().Contains(currentMouseState.Position) && !(GetBounds().Contains(currentMouseState.Position))) //If you tap, the eye will see!
+                {
+                    _lookingTopLeft = false;
+                    _lookingTopRight = false;
+                    _lookingBottomLeft = false;
+                    _lookingBottomRight = true;
+                    _lookTimer = 30;
+                }
                 else //Theres nothing to look at!
                 {
                     _lookingTopLeft = false;
@@ -147,10 +155,15 @@ namespace TheEyeThatFollows
             {
                 spriteBatch.Draw(_iris, new Vector2(340, 190), _eyeColour);
             }
+            else if (_lookingBottomRight == true) //LOOKING BOTTOM RIGHT
+            {
+                spriteBatch.Draw(_iris, new Vector2(360, 190), _eyeColour);
+            }
             else //Hey! we have nothing to look at, we'll look at YOU!
             {
                 spriteBatch.Draw(_iris, new Vector2(350, 180), _eyeColour);
             }
+
             if (_isBlinking == true) //If it's blinking, lets actually blink!
             {
                 spriteBatch.Draw(_eyelid, new Vector2(350, 180), Color.White);

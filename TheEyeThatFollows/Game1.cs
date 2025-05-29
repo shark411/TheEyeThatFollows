@@ -59,7 +59,7 @@ namespace TheEyeThatFollows
             base.Draw(gameTime);
             _spriteBatch.Begin();
             _PoohbahTheGrand.Draw(_spriteBatch); //Draw Poobah!
-            _spriteBatch.Draw(_Rectangle,new Vector2(-400, 240), Color.White);
+            _spriteBatch.Draw(_Rectangle,new Vector2(400, 240), Color.White);
             _spriteBatch.End();
         }
     }
