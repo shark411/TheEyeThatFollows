@@ -46,17 +46,20 @@ namespace TheEyeThatFollows
                 Exit();
 
             // TODO: Add your update logic here
-
+            _PoohbahTheGrand.Update(); //Update that eye!
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+            _spriteBatch.Begin();
+            _PoohbahTheGrand.Draw(_spriteBatch); //Draw Poobah!
+            _spriteBatch.End();
         }
     }
 }

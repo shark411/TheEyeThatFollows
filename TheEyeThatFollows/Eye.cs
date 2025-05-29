@@ -31,5 +31,18 @@ namespace TheEyeThatFollows
             _eyelid = eyelid;
             _eyebase = eyebase;
         }
+
+        public void Update()
+        {
+            //Nothing yet!
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(_eyebase, new Vector2(350, 180), Color.White); //EYEWHITE FIRST
+            spriteBatch.Draw(_iris, new Vector2(350, 180), Color.White); //IRIS SECOND
+            spriteBatch.Draw(_eyelid, new Vector2(350, 180), Color.White); //EYELID LAST
+
+        }
     }
 }
