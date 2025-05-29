@@ -8,6 +8,11 @@ namespace TheEyeThatFollows
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private SpriteFont _GameFont;
+        private Texture2D _Rectangle;
+
+        private Eye _PoohbahTheGrand; //Theres a lot in a name.
+
 
         public Game1()
         {
@@ -28,6 +33,11 @@ namespace TheEyeThatFollows
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            _Rectangle = Content.Load<Texture2D>("MonogameWindow"); //Will be used for tracking the mouse eventually.
+            _GameFont = Content.Load<SpriteFont>("GameFont"); //Yay! The font!
+
+            //Load up Poobah!
+            _PoohbahTheGrand = new Eye("Poohbah The Grand", Content.Load<Texture2D>("Iris"), Content.Load<Texture2D>("EyeLid"), Content.Load<Texture2D>("EyeBase"), Content.Load<SpriteFont>("GameFont"));
         }
 
         protected override void Update(GameTime gameTime)
