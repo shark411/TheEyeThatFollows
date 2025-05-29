@@ -53,7 +53,7 @@ namespace TheEyeThatFollows
         }
         public Rectangle TopRight() //WHERE IS THE EYE LOOKING
         {
-            return new Rectangle(-400, -240, 800, 480);
+            return new Rectangle(400, -240, 800, 480);
         }
         public Rectangle BottomLeft() //WHERE IS THE EYE LOOKING
         {
@@ -106,6 +106,14 @@ namespace TheEyeThatFollows
                     _lookingBottomRight = false;
                     _lookTimer = 30;
                 }
+                else if (TopRight().Contains(currentMouseState.Position) && !(GetBounds().Contains(currentMouseState.Position))) //If you tap, the eye will see!
+                {
+                    _lookingTopLeft = false;
+                    _lookingTopRight = true;
+                    _lookingBottomLeft = false;
+                    _lookingBottomRight = false;
+                    _lookTimer = 30;
+                }
                 else //Theres nothing to look at!
                 {
                     _lookingTopLeft = false;
@@ -122,6 +130,10 @@ namespace TheEyeThatFollows
             if (_lookingTopLeft == true) //LOOKING TOP LEFT
             {
                 spriteBatch.Draw(_iris, new Vector2(340, 170), _eyeColour);
+            }
+            else if (_lookingTopRight == true) //LOOKING TOP RIGHT
+            {
+                spriteBatch.Draw(_iris, new Vector2(360, 170), _eyeColour);
             }
             else //Hey! we have nothing to look at, we'll look at YOU!
             {
